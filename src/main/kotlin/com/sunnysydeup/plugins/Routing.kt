@@ -5,6 +5,7 @@ import com.sunnysydeup.users.users
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
+import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import org.koin.ktor.ext.inject
@@ -35,3 +36,5 @@ fun Application.configureRouting() {
 
 class AuthenticationException : RuntimeException()
 class AuthorizationException : RuntimeException()
+
+fun ApplicationCall.isPublic() = this.request.port() == 8081
