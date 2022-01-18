@@ -1,10 +1,7 @@
 package com.sunnysydeup
 
 import com.sunnysydeup.di.configureKoin
-import com.sunnysydeup.plugins.configureHTTP
-import com.sunnysydeup.plugins.configureMonitoring
-import com.sunnysydeup.plugins.configureRouting
-import com.sunnysydeup.plugins.configureSerialization
+import com.sunnysydeup.plugins.*
 import com.sunnysydeup.repositories.configureDatabase
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
@@ -21,6 +18,7 @@ fun env() = applicationEngineEnvironment {
         configureHTTP()
         configureMonitoring()
         configureSerialization()
+        graphQl()
     }
     // Private API
     connector {
